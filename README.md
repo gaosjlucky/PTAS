@@ -53,7 +53,4 @@ Below is an example of a tsv file:
 
 Where location information is not necessary.
 
-In addition, the reference sequence should ensure that the SNP locus is located at position 501.
-
-## License
-`PCPI` is open source software released under the MIT License.
+In addition, the reference sequence should ensure that the SNP locus is located at position 501.  
