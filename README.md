@@ -12,6 +12,7 @@ Dependancies installed by `Makefile`:
 + [bwa](https://github.com/lh3/bwa)
 + [samtools](https://github.com/samtools/samtools)
 + [bcftools](https://github.com/samtools/bcftools)  
+
 And various perl modules.
 
 Please see the respective licence for each before use.
@@ -49,6 +50,7 @@ Below is an example of a tsv file:
 | rs151118460 | chr1 | 91581 | - | - | G | 0.6717 | A | 0.3283 |
 | rs4951859 | chr1 | 729679 | - | - | C | 0.3407 | G | 0.6593 |
 | rs143214544 | chr1 | 748878 | - | - | G | 0.3843 | T | 0.6157 |  
+
 Where location information is not necessary.
 
 In addition, the reference sequence should ensure that the SNP locus is located at position 501.
