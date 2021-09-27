@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 =pod
-Author: Hu Xuesong @ BGI <huxuesong@genomics.org.cn>
+Author: Shengjie Gao @ BGI <gaoshengjie@genomics.org.cn>
 Version: 2.0.0 @ 20190727 update by libowen
 =cut
 use strict;
