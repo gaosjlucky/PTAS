@@ -39,6 +39,7 @@ The options are:
 | r | Same as --read-structure in fgbio ExtractUmisFromBam. '3M2S+T,3M2S+T' is set as default. |
 | t | Same as --molecular-index-tags in fgbio ExtractUmisFromBam. 'ZA,ZB' is set as default. |
 | umi | enable the unique molecular identifier sequences analysis |  
+| sur | enable the paternity analysis for surrogacy duo cases (conflicts with --umi) |
 
 ## Configuration file format
 A SNP list is required for the generation and alignment of upstream and downstream sequences. If you need to customize the SNP panel, you need to refer to PCPI/db/nipptRESHAPE.tsv and PCPI/ref/nipptRESHAPE.hg19.fa to modify the database.
