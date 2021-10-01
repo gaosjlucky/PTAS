@@ -1,11 +1,12 @@
 #!/usr/bin/env perl
 ## Name:           pcpi.pl
 ## Date Created:   Thu Aug 8 2019
-## Date Modified:  Thu Mar 19 2021
+## Date Modified:  Thu Oct 1 2021
 ## By:             LBW
 
 ## Update 
 #  poisson model
+#  surrogacy
 
 use strict;
 use Getopt::Long;
@@ -38,14 +39,15 @@ Parameter
   		4. 'S' identifies a set of bases that should be skipped or ignored
 	--t	molecular index tags, the number of tags must be same as ReadStructure. 'ZA,ZB' is set as default.
 	--umi	enable the unique molecular identifier sequences analysis
+	--sur	enable the paternity analysis for surrogacy duo cases (conflicts with --umi)
 	--help	Show this information
 Exmple 
-	PE:	perl $0 --snp snp.lst --f1 test_father_1.fq.gz --f2 test_father_2.fq.gz --m1 test_mather_1.fq.gz --m2 test_mather_2.fq.gz --c1 test_child_1.fq.gz --c2 test_child_2.fq.gz --out /test_dir/ --w 6
-	SE:	perl $0 --snp snp.lst --f1 test_father_1.fq.gz --m1 test_mather_1.fq.gz --c1 test_child_1.fq.gz --out /test_dir/ --w 6
+	PE:	perl $0 --snp snp.lst --f1 test_father_1.fq.gz --f2 test_father_2.fq.gz --m1 test_mather_1.fq.gz --m2 test_mather_2.fq.gz --c1 test_child_1.fq.gz --c2 test_child_2.fq.gz --out /test_dir/ --w 8
+	SE:	perl $0 --snp snp.lst --f1 test_father_1.fq.gz --m1 test_mather_1.fq.gz --c1 test_child_1.fq.gz --out /test_dir/ --w 8
 
 USAGE
 
-my ($f_1,$f_2,$m_1,$m_2,$c_1,$c_2,$snp_list,$outdir,$help,$umi,$ReadStructure,$IndexTag,$ThreadsNum,$week);
+my ($f_1,$f_2,$m_1,$m_2,$c_1,$c_2,$snp_list,$outdir,$help,$umi,$ReadStructure,$IndexTag,$ThreadsNum,$week,$sur);
 GetOptions(
 	"f1=s"=>\$f_1,
 	"f2=s"=>\$f_2,
@@ -60,6 +62,7 @@ GetOptions(
 	"n=i"=>\$ThreadsNum,
 	"w=i"=>\$week,
 	"umi"=>\$umi,
+	"sur"=>\$sur,
 	"help" => \$help,
 );
 die "$usage" if(!$f_1 || !$m_1 || !$c_1 || !$outdir || !$snp_list || $help);
@@ -200,6 +203,8 @@ if ($return2 =~ /step2 done/){
 	}
 	if ($umi){
 		system("$RealBin/bin/calposin-doublecpi-fornon.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week --errorate 0.0001 --thresh 0.001 > $tsvout/r01.result.cpibayes");
+	}elsif($sur){
+		system("$RealBin/bin/calposin-doublecpi-fornon-DUO.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week > $tsvout/r01.result.cpibayes");
 	}else{
 		system("$RealBin/bin/calposin-doublecpi-fornon.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week > $tsvout/r01.result.cpibayes");
 	}

@@ -1,4 +1,3 @@
-#!/bin/bash
-echo "*** Running test analysis ***"
-echo
-perl ../bcpi.pl --snp snp.lst --f1 GF_1.fq.gz --f2 GF_2.fq.gz --m1 GM_1.fq.gz --m2 GM_2.fq.gz --c1 GC_1.fq.gz --c2 GC_2.fq.gz --out ./test_output --w 6
+version https://git-lfs.github.com/spec/v1
+oid sha256:0140bcd4026f1cf3eadaedf56af4828012a031b57bdd5c0b5cab2bc5ec397bea
+size 210
