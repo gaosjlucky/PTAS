@@ -1,5 +1,5 @@
 # PTAS
-A Prenatal paternity Test Analysis System for non-invasive prenatal paternity testing. PTAS provides a novel CPI model by combining traditional and Poisson modelling with a previous judicial CPI model, where users can upload sequencing data of alleged father genomic DNA, mother gDNA and mother cfDNA. In addition, NIPPT-specific CPE model was also developed with improved accuracy. Unique molecular identifiers (UMI) is also supported to reduce sequencing errors in early pregnancy samples.
+PTAS (Prenatal paternity Test Analysis System）provides a novel CPI and CPE models specifically for non-invasive prenatal paternity testing (NIPPT). Users can upload sequencing data of alleged father genomic DNA, mother gDNA and mother cfDNA. Unique molecular identifiers (UMI) is also supported to reduce sequencing errors in early pregnancy samples.
 
 ## Install
 	tar -xvf PTAS.tar.gz
