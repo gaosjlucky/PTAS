@@ -1,9 +1,9 @@
-# PCPI
-A Poisson-based cumulative paternity index analysis system for non-invasive prenatal paternity testing. PCPI provides a novel CPI model by combining traditional and Poisson modelling with a previous judicial CPI model, where users can upload sequencing data of alleged father genomic DNA, mother gDNA and mother cfDNA. In addition, NIPPT-specific CPE model was also developed with improved accuracy. Unique molecular identifiers (UMI) is also supported to reduce sequencing errors in early pregnancy samples.
+# PTAS
+A Prenatal paternity Test Analysis System for non-invasive prenatal paternity testing. PTAS provides a novel CPI model by combining traditional and Poisson modelling with a previous judicial CPI model, where users can upload sequencing data of alleged father genomic DNA, mother gDNA and mother cfDNA. In addition, NIPPT-specific CPE model was also developed with improved accuracy. Unique molecular identifiers (UMI) is also supported to reduce sequencing errors in early pregnancy samples.
 
 ## Install
-	tar -xvf PCPI.tar.gz
-	cd ./PCPI
+	tar -xvf PTAS.tar.gz
+	cd ./PTAS
 	make install
 
 Dependancies installed by `Makefile`:
