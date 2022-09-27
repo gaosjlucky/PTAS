@@ -26,15 +26,15 @@ For single-end sequencing:
 The options are:
 | Option | Effect |
 | ---- | ---- |
-| f1 | .fastq file 1 of father |
+| f1 | .fastq file 1 of father (Required) |
 | f2 | .fastq file 2 of father |
-| m1 | .fastq file 1 of mather |
+| m1 | .fastq file 1 of mather (Required) |
 | m2 | .fastq file 1 of mather |
-| c1 | .fastq file 1 of child |
+| c1 | .fastq file 1 of child (Required) |
 | c2 | .fastq file 1 of child |
-| snp | A list of snp for paternity test |
-| w | gestational weeks |
-| out | Output Directory |
+| snp | A list of snp for paternity test (Required) |
+| w | gestational weeks. Default is 8. (If not set, the two critical points of MBF will be set to 0.001 and 0.01) |
+| out | Output Directory (Required)|
 | n | Threads number. Default is 4. |
 | r | Same as --read-structure in fgbio ExtractUmisFromBam. '3M2S+T,3M2S+T' is set as default. |
 | t | Same as --molecular-index-tags in fgbio ExtractUmisFromBam. 'ZA,ZB' is set as default. |
