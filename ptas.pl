@@ -183,9 +183,9 @@ my $return1 = readpipe("$dBWA");
 my $return2;
 if ($return1 =~ /step1 done/){
 	if ($umi){
-		$return2 = readpipe("$RealBin/bin/samtools mpileup $fqout/Father.bam $fqout/Mother.bam $fqout/Child.fmbam -l $tempPOS -d 50000 -Q 10 -f $tempREF -v -t 'DP,AD,ADF,ADR,SP,INFO/AD,INFO/ADF,INFO/ADR' -p -o $vcfout/Family.vcf.gz 2> $vcfout/mpileup.log && $RealBin/bin/bcftools call -Oz -V indels -m $vcfout/Family.vcf.gz -o $vcfout/Family.snp.gz && $RealBin/bin/bcftools index $vcfout/Family.vcf.gz && $RealBin/bin/bcftools index $vcfout/Family.snp.gz && echo step2 done.");
+		$return2 = readpipe("$RealBin/bin/samtools mpileup $fqout/Mother.bam $fqout/Father.bam $fqout/Child.fmbam -l $tempPOS -d 50000 -Q 10 -f $tempREF -v -t 'DP,AD,ADF,ADR,SP,INFO/AD,INFO/ADF,INFO/ADR' -p -o $vcfout/Family.vcf.gz 2> $vcfout/mpileup.log && $RealBin/bin/bcftools call -Oz -V indels -m $vcfout/Family.vcf.gz -o $vcfout/Family.snp.gz && $RealBin/bin/bcftools index $vcfout/Family.vcf.gz && $RealBin/bin/bcftools index $vcfout/Family.snp.gz && echo step2 done.");
 	}else{
-		$return2 = readpipe("$RealBin/bin/samtools mpileup $fqout/Father.bam $fqout/Mother.bam $fqout/Child.bam -l $tempPOS -d 4000 -Q 30 -f $tempREF -v -t 'DP,AD,ADF,ADR,SP,INFO/AD,INFO/ADF,INFO/ADR' -p -o $vcfout/Family.vcf.gz 2> $vcfout/mpileup.log && $RealBin/bin/bcftools call -Oz -V indels -m $vcfout/Family.vcf.gz -o $vcfout/Family.snp.gz && $RealBin/bin/bcftools index $vcfout/Family.vcf.gz && $RealBin/bin/bcftools index $vcfout/Family.snp.gz && echo step2 done.");
+		$return2 = readpipe("$RealBin/bin/samtools mpileup $fqout/Mother.bam $fqout/Father.bam $fqout/Child.bam -l $tempPOS -d 4000 -Q 30 -f $tempREF -v -t 'DP,AD,ADF,ADR,SP,INFO/AD,INFO/ADF,INFO/ADR' -p -o $vcfout/Family.vcf.gz 2> $vcfout/mpileup.log && $RealBin/bin/bcftools call -Oz -V indels -m $vcfout/Family.vcf.gz -o $vcfout/Family.snp.gz && $RealBin/bin/bcftools index $vcfout/Family.vcf.gz && $RealBin/bin/bcftools index $vcfout/Family.snp.gz && echo step2 done.");
 	}
 }else{
 	print ER "! BWA failed, please check the log in $fqout.\n";
