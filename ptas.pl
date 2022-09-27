@@ -74,7 +74,11 @@ if(!defined $c_2){$c_2="NA";}
 if(!defined $ReadStructure){$ReadStructure="3M2S+T,3M2S+T";}
 if(!defined $IndexTag){$IndexTag="ZA,ZB";}
 if(!defined $ThreadsNum){$ThreadsNum=4;}
-if(!defined $week){$week=8;}
+my $extra_para = "";
+if(!defined $week){
+	$week=8;
+	$extra_para = '--errorate 0.001 --thresh 0.01';
+}
 
 $ReadStructure =~ s/,/ /g;
 $IndexTag =~ s/,/ /g;
@@ -204,9 +208,9 @@ if ($return2 =~ /step2 done/){
 	if ($umi){
 		system("$RealBin/bin/calposin-doublecpi-fornon.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week --errorate 0.0001 --thresh 0.001 > $tsvout/r01.result.cpibayes");
 	}elsif($sur){
-		system("$RealBin/bin/calposin-doublecpi-fornon-DUO.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week > $tsvout/r01.result.cpibayes");
+		system("$RealBin/bin/calposin-doublecpi-fornon-DUO.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week $extra_para > $tsvout/r01.result.cpibayes");
 	}else{
-		system("$RealBin/bin/calposin-doublecpi-fornon.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week > $tsvout/r01.result.cpibayes");
+		system("$RealBin/bin/calposin-doublecpi-fornon.pl $tempDB $week_thres --vcf $vcfout/Family.snp.gz --gweek $week $extra_para > $tsvout/r01.result.cpibayes");
 	}
 	system("$RealBin/bin/heterozygosity.pl $info/family.lst $tsvout $tsvout/r02.heterozygosity.txt");
 	system("$RealBin/bin/contamination.MC.pl $info/family.lst $tsvout $tsvout/r03.contamination.MC.txt");
