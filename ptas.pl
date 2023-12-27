@@ -113,7 +113,7 @@ my $snp_count = 0;
 open SNP,"<$snp_list" or die($!);
 while (<SNP>){
 	chomp;
-	if ($_ =~ /^rs\d+$/){
+	if ($_ =~ /\S+/){
 		$need_snp{$_}++;
 		$snp_count++;
 	}else{
